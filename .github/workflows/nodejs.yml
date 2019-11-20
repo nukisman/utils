@@ -17,6 +17,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        registry-url: 'https://registry.npmjs.org'
     - name: Yarn install
       run: yarn
       env:
@@ -25,14 +26,14 @@ jobs:
       run: yarn build
       env:
         CI: true
-    - name: Yarn publish     
-      run: yarn publish
-#     - name: Yarn Package Publish
-#       uses: luvies/action-yarn-publish@v0.1.1
-#       env:
-#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
-#       with:
+#     - name: Yarn publish     
+#       run: yarn publish
+    - name: Yarn Package Publish
+      uses: luvies/action-yarn-publish@v0.1.1
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
         # The path to the root directory containing the package.json.
         # package-path: # optional
         # If set to true, all actions that would have been performed are skipped.
@@ -40,6 +41,6 @@ jobs:
         # A semver string of the versions to skip publishing of (see https://npm.im/semver for syntax).
         # skipped-versions: # optional
         # Whether to also tag the current commit with the version.
-#         git-tag: true # optional, default is false
+        git-tag: true # optional, default is false
         # The format the git tag should use ({version} is replaced by the package.json version).
         # git-tag-format: # optional, default is v{version}
