@@ -26,6 +26,7 @@ jobs:
     - name: Yarn Package Publish
       uses: luvies/action-yarn-publish@v0.1.1
       with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # The path to the root directory containing the package.json.
         # package-path: # optional
         # If set to true, all actions that would have been performed are skipped.
