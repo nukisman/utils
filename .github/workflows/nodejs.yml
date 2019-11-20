@@ -17,10 +17,22 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: Yarn install and build
       run: |
-        npm ci
-        npm run build --if-present
-        npm publish
+        yarn
+        yarn build
       env:
         CI: true
+    - name: Yarn Package Publish
+      uses: luvies/action-yarn-publish@v0.1.1
+      with:
+        # The path to the root directory containing the package.json.
+        # package-path: # optional
+        # If set to true, all actions that would have been performed are skipped.
+        # dry-run: # optional, default is false
+        # A semver string of the versions to skip publishing of (see https://npm.im/semver for syntax).
+        # skipped-versions: # optional
+        # Whether to also tag the current commit with the version.
+        git-tag: true # optional, default is false
+        # The format the git tag should use ({version} is replaced by the package.json version).
+        # git-tag-format: # optional, default is v{version}
