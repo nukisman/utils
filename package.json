@@ -1,13 +1,16 @@
 {
   "name": "@nukisman/utils",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "TypeScript / JavaScript Utilities",
   "keywords": [],
   "readme": "./README.md",
   "author": "nukisman (Alexander Nuikin)",
   "license": "MIT",
   "main": "build/index.js",
-  "module": "build/index.esm.js",
+  "module": "build/index.es.js",
+  "files": [
+    "build"
+  ],
   "engines": {
     "node": ">=8",
     "npm": ">=5"
