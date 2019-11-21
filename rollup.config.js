@@ -4,6 +4,8 @@ import commonjs from 'rollup-plugin-commonjs';
 
 import pkg from './package.json';
 
+const moduleName = pkg.name.replace(/-/g, '_');
+
 const plugins = [
   eslint({}),
   typescript({
@@ -19,12 +21,13 @@ export default {
     {
       file: 'build/index.js',
       format: 'umd',
-      name: pkg.name,
-      sourcemap: true
+      name: moduleName,
+      sourcemap: true,
+      globals: {}
     },
     {
-      file: 'build/index.ems.js',
-      format: 'esm',
+      file: 'build/index.es.js',
+      format: 'es',
       exports: 'named',
       sourcemap: true
     }

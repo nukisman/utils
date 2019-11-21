@@ -4,23 +4,12 @@ module.exports = {
     es6: true
   },
   plugins: ['prettier'],
-  // plugins: ['prettier', 'svelte3'],
   extends: [
     'eslint:recommended',
     'plugin:import/recommended',
     'plugin:prettier/recommended',
     'prettier'
   ],
-  // overrides: [
-  //   {
-  //     files: ['**/*.svelte'],
-  //     processor: 'svelte3/svelte3',
-  //     settings: {
-  //       'svelte3/ignore-styles': attrs => attrs.type === 'text/postcss',
-  //       'svelte3/lint-template': false
-  //     }
-  //   }
-  // ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -34,7 +23,6 @@ module.exports = {
     // 'linebreak-style': ['error', 'unix'],
     // quotes: ['error', 'single'],
     // semi: ['error', 'always'],
-    // 'svelte3/lint-template': 2,
     'prettier/prettier': [
       'error',
       {
@@ -45,11 +33,6 @@ module.exports = {
         arrowParens: 'avoid'
       }
     ],
-    // 'prettier/svelte': 2,
-    // "svelteSortOrder" : "styles-scripts-markup",
-    // "svelteStrictMode": true,
-    // 'svelte-sort-order' : 'styles-scripts-markup',
-    // 'svelte-strict-mode': true
     'sort-imports': [
       0,
       {
